@@ -416,7 +416,7 @@
 <footer>
   <div class="wrap">
     <p style="margin-bottom:10px">
-      <a href="/track/" style="font-weight:700;color:var(--accent)">Track your order</a>
+      <a href="/track/?from=/dog/" style="font-weight:700;color:var(--accent)">Track your order</a>
       <a href="#" data-link="shipping">Shipping</a>
       <a href="#" data-link="refund">Refund policy</a>
       <a href="#" data-link="privacy">Privacy</a>
@@ -547,6 +547,7 @@ $("#orderForm").addEventListener("submit", async e => {
   const data = Object.fromEntries(new FormData(f).entries());
   const payload = {
     order_id: "ORD-" + Date.now().toString(36).toUpperCase(),
+    page: location.pathname,
     date: new Date().toISOString(),
     product: "Plush Puppy Lounger",
     offer: opt.label, color: data.color, quantity: opt.qty, total: opt.price + CONFIG.SHIPPING_COST,
